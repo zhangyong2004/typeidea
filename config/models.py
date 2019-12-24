@@ -29,6 +29,8 @@ class SideBar(models.Model):
 
     title=models.CharField(max_length=50,verbose_name='标题')
     display_type=models.PositiveIntegerField(default=1,choices=STATUS_ITEMS,verbose_name='状态')
+    content=models.CharField(max_length=500,blank=True,verbose_name='内容',help_text='设置不是HTML类型，可为空')
+    status=models.PositiveIntegerField(default=STATUS_SHOW,choices=STATUS_ITEMS,verbose_name='状态')
     owner=models.ForeignKey(User,verbose_name='作者',on_delete=models.CASCADE)
     created_time=models.DateTimeField(auto_now_add=True,verbose_name='创建时间')
 
